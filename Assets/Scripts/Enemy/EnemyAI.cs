@@ -16,12 +16,6 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         MoveToTarget();
-        /*LookAtTarget();*/
-    }
-
-    private void LookAtTarget()
-    {
-        
     }
 
     private void MoveToTarget()
@@ -30,7 +24,5 @@ public class EnemyAI : MonoBehaviour
 
         if (distanceToTarget > _enemy.StoppingDistance)
             transform.position = Vector2.MoveTowards(transform.position, _target.position, _enemy.Speed * Time.deltaTime);
-        else if (distanceToTarget <= _enemy.StoppingDistance)
-            transform.position = Vector2.MoveTowards(transform.position, _target.position, -_enemy.Speed * Time.deltaTime);
     }
 }
