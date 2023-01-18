@@ -5,12 +5,6 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float _forceAmmountToAdd;
-    private LineRenderer _lineRenderer;
-
-    private void Start()
-    {
-        _lineRenderer = GetComponent<LineRenderer>();
-    }
 
     private void OnMouseUp()
     {
