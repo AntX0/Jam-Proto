@@ -1,27 +1,45 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private GameObject _projectilePrefab;
-    [SerializeField] private GameObject _projectilesPool;
-    private Projectile _projectile;
+    [SerializeField] private float _forceAmmountToAdd = 10f;
+    [SerializeField] private float _boundY;
+    [SerializeField] private ProjectileScriptableObject _projectile;
+
+    private Rigidbody2D _rigidbody;
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();  
+    }
 
     private void Update()
     {
-        HandleObjectInstantiation();
+        AddForceTowardsSky();
     }
 
-    private void HandleObjectInstantiation()
+    private void AddForceTowardsSky()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.Space) && _rigidbody.position.y < _boundY)
         {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = 2.0f;
-            Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
-            Instantiate(_projectilePrefab, objectPos, Quaternion.identity, _projectilesPool.transform);
-            _projectile = FindObjectOfType<Projectile>();
-            _projectile.GetComponent<Rigidbody2D>().isKinematic = true;
+            _rigidbody.velocity = Vector2.zero;
+            _rigidbody.AddForce(Vector2.up * _forceAmmountToAdd);
+
+            GameObject instance = SpawnProjectile();
+            ShootProjectile(instance);
         }
+    }
+
+    private GameObject SpawnProjectile()
+    {
+        return Instantiate(_projectile.ProjectilePrefab, transform.position, Quaternion.Euler(0,0,-90));
+    }
+
+    private void ShootProjectile(GameObject projectile)
+    {
+       var rb = projectile.GetComponent<Rigidbody2D>();
+        rb.AddForce(Vector2.right * _projectile.Speed);
     }
 }
