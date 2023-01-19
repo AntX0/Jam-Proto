@@ -35,12 +35,13 @@ public class PlayerController : MonoBehaviour
 
     private GameObject SpawnProjectile()
     {
-        return Instantiate(_projectile.ProjectilePrefab, transform.position, Quaternion.Euler(0, 0, -90));
+        return Instantiate(_projectile.ProjectilePrefab, transform.position, Quaternion.Euler(0, 0, 0));
     }
 
     private void ShootProjectile(GameObject projectile)
     {
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        rb.mass = _projectile.Mass;
         rb.AddForce(Vector2.right * _projectile.Speed);
     }
 }
