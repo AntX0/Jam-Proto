@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdcf426ca6ca11b448326eb670a2a87e, type: 3}
   m_Name: SimpleProjectile
   m_EditorClassIdentifier: 
-  _speed: 10
+  _speed: 38.74
   _mass: 0.1
   _projectilePrefab: {fileID: 122482951063521414, guid: bacf24ef3369d4249a71432f246c663a, type: 3}

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();  
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -29,17 +29,18 @@ public class PlayerController : MonoBehaviour
 
             GameObject instance = SpawnProjectile();
             ShootProjectile(instance);
+            Destroy(instance, 5f);
         }
     }
 
     private GameObject SpawnProjectile()
     {
-        return Instantiate(_projectile.ProjectilePrefab, transform.position, Quaternion.Euler(0,0,-90));
+        return Instantiate(_projectile.ProjectilePrefab, transform.position, Quaternion.Euler(0, 0, -90));
     }
 
     private void ShootProjectile(GameObject projectile)
     {
-       var rb = projectile.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.AddForce(Vector2.right * _projectile.Speed);
     }
 }
