@@ -9,10 +9,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ProjectileScriptableObject _projectile;
 
     private Rigidbody2D _rigidbody;
+    private BirdAnimationHandler _birdAnimationHandler;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _birdAnimationHandler = GetComponent<BirdAnimationHandler>();
     }
 
     private void Update()
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
         {
             _rigidbody.velocity = Vector2.zero;
             _rigidbody.AddForce(Vector2.up * _forceAmmountToAdd);
+            _birdAnimationHandler.PlayLeapAnimation();
 
             GameObject instance = SpawnProjectile();
             ShootProjectile(instance);
