@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb893e947a8560047808d52297903030, type: 3}
-  m_Name: DefaultEnemy
+  m_Name: Default Enemy
   m_EditorClassIdentifier: 
   _health: 0
-  _speed: 7.71
-  _stoppingDistance: 3.09
+  _speed: 4.03
+  _stoppingDistance: 5.18
+  _attackSpeed: 0

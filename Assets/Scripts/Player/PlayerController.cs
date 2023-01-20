@@ -6,10 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _forceAmmountToAdd = 10f;
     [SerializeField] private float _boundY;
-    [SerializeField] private ProjectileScriptableObject _projectile;
+    [SerializeField] private GameObject _projectilePrefab;
 
     private Rigidbody2D _rigidbody;
     private BirdAnimationHandler _birdAnimationHandler;
+    private Projectile _projectile;
 
     private void Awake()
     {
@@ -38,13 +39,14 @@ public class PlayerController : MonoBehaviour
 
     private GameObject SpawnProjectile()
     {
-        return Instantiate(_projectile.ProjectilePrefab, transform.position, Quaternion.Euler(0, 0, 0));
+        return Instantiate(_projectilePrefab, transform.position, Quaternion.Euler(0, 0, 0));
     }
 
-    private void ShootProjectile(GameObject projectile)
+    private void ShootProjectile(GameObject instance)
     {
-        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        rb.mass = _projectile.Mass;
-        rb.AddForce(Vector2.right * _projectile.Speed);
+        Rigidbody2D rigidBody = instance.GetComponent<Rigidbody2D>();
+        Projectile projectile = instance.GetComponent<Projectile>();
+        rigidBody.AddForce(Vector2.right * projectile.Speed);
+        Debug.Log(projectile.Speed);
     }
 }
