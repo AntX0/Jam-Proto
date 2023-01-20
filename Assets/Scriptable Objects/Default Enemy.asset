@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb893e947a8560047808d52297903030, type: 3}
   m_Name: Default Enemy
   m_EditorClassIdentifier: 
-  _maxHealth: 30
+  _health: 30
   _speed: 0.46
   _stoppingDistance: 10.28
   _secondsBetweenShots: 0.56
-  Health: 0
