@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private ProjectileScriptableObject _projectile;
 
     private Rigidbody2D _rigidbody2D;
-    [SerializeField] private float _speed;
+    private float _speed;
 
     public float Speed => _speed;
 

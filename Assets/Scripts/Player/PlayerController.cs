@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
     private BirdAnimationHandler _birdAnimationHandler;
-    private Projectile _projectile;
 
     private void Awake()
     {
@@ -47,6 +46,5 @@ public class PlayerController : MonoBehaviour
         Rigidbody2D rigidBody = instance.GetComponent<Rigidbody2D>();
         Projectile projectile = instance.GetComponent<Projectile>();
         rigidBody.AddForce(Vector2.right * projectile.Speed);
-        Debug.Log(projectile.Speed);
     }
 }

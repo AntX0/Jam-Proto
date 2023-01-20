@@ -152,7 +152,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.04, y: -0.12}
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _forceAmmountToAdd: 30
   _boundY: 8
-  _projectile: {fileID: 11400000, guid: afdaaecb4e4870243ab3ba7c841cd440, type: 2}
+  _projectilePrefab: {fileID: 0}
 --- !u!95 &4366539741145927840
 Animator:
   serializedVersion: 4
