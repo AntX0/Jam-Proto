@@ -8,6 +8,15 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private EnemyScriptableObjject _enemy;
     [SerializeField] private GameObject _projectilePrefab;
 
+    private EnemyAnimationHandler _enemyAnimationHandler;
+    private float _currentHealth;
+
+    private void Awake()
+    {
+        _enemyAnimationHandler = GetComponent<EnemyAnimationHandler>();
+        _currentHealth = _enemy.Health;
+    }
+
     private void Start()
     {
         StartCoroutine(AttackTarget());
@@ -15,6 +24,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(_currentHealth);
         if (_target == null)
         {
             MoveAway();
@@ -39,9 +49,13 @@ public class EnemyAI : MonoBehaviour
         if (collision.gameObject.GetComponent<Projectile>())
         {
             Destroy(collision.gameObject);
+
             float damage = collision.gameObject.GetComponent<Projectile>().DoDamage();
-            if (_enemy.TakeDamage(damage) <= 0)
+            float newHealth = _currentHealth -= damage;
+
+            if (newHealth <= 0)
             {
+                _currentHealth = 0;
                 Destroy(gameObject);
             }
         }
@@ -51,6 +65,8 @@ public class EnemyAI : MonoBehaviour
     {
         while(_target != null)
         {
+            _enemyAnimationHandler.PlayAttackAnimation();
+
             Vector2 direction = _target.position - transform.position;
 
             GameObject projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
