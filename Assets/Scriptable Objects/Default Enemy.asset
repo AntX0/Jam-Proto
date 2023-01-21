@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 20
   _speed: 5.5
-  _stoppingDistance: 10.28
-  _secondsBetweenShots: 2
+  _stoppingDistance: 14.3
+  _secondsBetweenShots: 4.03

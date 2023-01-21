@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour
         _rigidbody2D.mass = _projectile.Mass;
     }
 
-    public float DoDamage()
+    public float SetDamage()
     {
         return _projectile.Damage;
     }

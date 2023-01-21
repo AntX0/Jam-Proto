@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb893e947a8560047808d52297903030, type: 3}
-  m_Name: Big Enemy
+  m_Script: {fileID: 11500000, guid: fdcf426ca6ca11b448326eb670a2a87e, type: 3}
+  m_Name: Big Projectile
   m_EditorClassIdentifier: 
-  _health: 30
-  _speed: 3.08
-  _stoppingDistance: 13.32
-  _secondsBetweenShots: 6.25
+  _speed: 3.96
+  _damage: 20
+  _mass: 0.03

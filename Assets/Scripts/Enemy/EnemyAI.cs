@@ -55,7 +55,7 @@ public class EnemyAI : MonoBehaviour
         {
             Destroy(collision.gameObject);
 
-            float damage = collision.gameObject.GetComponent<Projectile>().DoDamage();
+            float damage = collision.gameObject.GetComponent<Projectile>().SetDamage();
             float newHealth = _currentHealth -= damage;
 
             if (newHealth <= 0)

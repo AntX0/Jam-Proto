@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 496584952}
+  - component: {fileID: 904516449}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -31,6 +32,18 @@ Transform:
   m_Father: {fileID: 4366539741145927842}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &904516449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496584951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fca1aed6a54aa14b84d70d376ec5b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4366539741145927846
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,8 +185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _forceAmmountToAdd: 30
-  _boundY: 8
-  _projectilePrefab: {fileID: 0}
+  _boundY: 5.57
+  _projectilePrefab: {fileID: 7090798621825529292, guid: dcd47ec2233d5444aa0be42d2b929ad2, type: 3}
 --- !u!95 &4366539741145927840
 Animator:
   serializedVersion: 4
@@ -218,3 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b3a31a0b1f69941b57c81c6f9c9e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHealth: 30
+  _invincibilityDurationSeconds: 2.23
+  _currentHealth: 0

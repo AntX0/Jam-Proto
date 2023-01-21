@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 267125223092684529}
   - component: {fileID: 2238254059907448821}
   - component: {fileID: 1706968615525177747}
-  - component: {fileID: 8889375070811557477}
+  - component: {fileID: 237447346572478837}
+  - component: {fileID: 5474055165043088668}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Big Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122482951063521414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.012202531, y: 0.91524446, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.012202, y: 0.91524, z: 0}
+  m_LocalScale: {x: 7.3329926, y: 7.3329926, z: 7.3329926}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_SortingOrder: 6
+  m_Sprite: {fileID: 21300000, guid: 1a2bf03d9579f984b8b60191f35be570, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,8 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectile: {fileID: 11400000, guid: ed0e248ba1534c3438418c13f9325cb9, type: 2}
   _isHitPlayer: 1
---- !u!60 &8889375070811557477
-PolygonCollider2D:
+--- !u!58 &237447346572478837
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -136,17 +137,18 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
+  serializedVersion: 2
+  m_Radius: 0.32
+--- !u!114 &5474055165043088668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122482951063521414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec25932173332a14689a03eecbcd2de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _degrees: 180
