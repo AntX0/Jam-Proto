@@ -5,6 +5,8 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _obstaclesPool;
+    [SerializeField] private float _maxHeight = 1f;
+    [SerializeField] private float _minHeight = -1f;
 
     private void Start()
     {
@@ -16,7 +18,8 @@ public class ObstacleSpawner : MonoBehaviour
         while (true)
         {
             int rand = Random.Range(0, _obstaclesPool.Capacity);
-            Instantiate(_obstaclesPool[rand], transform.position, Quaternion.identity);
+            GameObject instance = Instantiate(_obstaclesPool[rand], transform.position, Quaternion.identity);
+            instance.transform.position += Vector3.up * Random.Range(_minHeight, _maxHeight);
             yield return new WaitForSeconds(8);
         }
     }

@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -25,9 +26,14 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage(collision);
             Destroy(collision.gameObject);
         }
-        else if (collision.GetComponent<EnemyAI>())
+        else if (collision.GetComponent<GroundScroller>())
+        {
+            _playerController.enabled = false;
+        }
+        else if (collision.GetComponent<Obstacle>())
         {
             _currentHealth -= 10;
+            CheckHealth();
         }
     }
 
@@ -35,9 +41,14 @@ public class PlayerHealth : MonoBehaviour
     {
         _currentHealth -= projectile.GetComponent<Projectile>().DoDamage();
 
+        CheckHealth();
+    }
+
+    private void CheckHealth()
+    {
         if (_currentHealth <= 0)
         {
-            _currentHealth= 0;
+            _currentHealth = 0;
             _playerController.enabled = false;
         }
     }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdcf426ca6ca11b448326eb670a2a87e, type: 3}
   m_Name: Enemy Projectile
   m_EditorClassIdentifier: 
-  _speed: 10.69
+  _speed: 10.6
   _damage: 10
-  _mass: 0.59
+  _mass: 0.01

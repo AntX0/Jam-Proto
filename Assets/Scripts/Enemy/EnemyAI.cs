@@ -78,7 +78,7 @@ public class EnemyAI : MonoBehaviour
             Projectile projectileStats = projectile.GetComponent<Projectile>();
             Rigidbody2D rigidbody = projectile.GetComponent<Rigidbody2D>();
 
-            rigidbody.AddRelativeForce(direction * projectileStats.Speed, ForceMode2D.Force);
+            rigidbody.AddForce(direction.normalized * projectileStats.Speed, ForceMode2D.Force);
             yield return new WaitForSeconds(_enemy.SecondsBetweenShots);
         }
     }
@@ -91,6 +91,5 @@ public class EnemyAI : MonoBehaviour
     private void MoveToTarget()
     {
         transform.Translate(_enemy.Speed * Time.deltaTime * Vector2.left);
-        /*transform.position = Vector2.MoveTowards(transform.position, _target.position, _enemy.Speed * Time.deltaTime);*/
     }
 }

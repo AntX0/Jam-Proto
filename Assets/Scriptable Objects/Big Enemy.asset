@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Big Enemy
   m_EditorClassIdentifier: 
   _health: 30
-  _speed: 0.64
+  _speed: 1.18
   _stoppingDistance: 10.28
   _secondsBetweenShots: 1.1
