@@ -17,7 +17,7 @@ public class ObstacleSpawner : MonoBehaviour
         {
             int rand = Random.Range(0, _obstaclesPool.Capacity);
             Instantiate(_obstaclesPool[rand], transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(8);
         }
     }
 }

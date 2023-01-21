@@ -5,7 +5,7 @@ public class ObjectDestroyer : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Obstacle>() || collision.gameObject.GetComponent<EnemyAI>() || collision.GetComponent<Projectile>())
+       
             Destroy(collision.gameObject);
     }
 }

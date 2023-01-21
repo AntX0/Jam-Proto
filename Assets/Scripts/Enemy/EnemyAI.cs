@@ -19,12 +19,12 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        _target = FindObjectOfType<Target>().transform;
         StartCoroutine(AttackTarget());
     }
 
     void Update()
     {
-        Debug.Log(_currentHealth);
         if (_target == null)
         {
             MoveAway();
@@ -45,6 +45,11 @@ public class EnemyAI : MonoBehaviour
 
 
     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        ApplyDamage(collision);
+    }
+
+    private void ApplyDamage(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<Projectile>())
         {
@@ -73,7 +78,7 @@ public class EnemyAI : MonoBehaviour
             Projectile projectileStats = projectile.GetComponent<Projectile>();
             Rigidbody2D rigidbody = projectile.GetComponent<Rigidbody2D>();
 
-            rigidbody.AddForce(direction * projectileStats.Speed);
+            rigidbody.AddRelativeForce(direction * projectileStats.Speed, ForceMode2D.Force);
             yield return new WaitForSeconds(_enemy.SecondsBetweenShots);
         }
     }

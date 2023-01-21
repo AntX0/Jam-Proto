@@ -4,11 +4,13 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private ProjectileScriptableObject _projectile;
+    [SerializeField] private bool _isHitPlayer;
 
     private Rigidbody2D _rigidbody2D;
     private float _speed;
 
     public float Speed => _speed;
+    public bool IsHitPlayer => _isHitPlayer;
 
     private void Awake()
     {

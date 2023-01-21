@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  _enemy: {fileID: 0}
+  _enemy: {fileID: 11400000, guid: 4c199e91f756feb4a909d2e2a688a2ad, type: 2}
   _projectilePrefab: {fileID: 122482951063521414, guid: bacf24ef3369d4249a71432f246c663a, type: 3}
 --- !u!50 &8774165828634879803
 Rigidbody2D:

@@ -10,7 +10,7 @@ public class EnemyScriptableObjject : ScriptableObject
     [SerializeField] private float _secondsBetweenShots;
 
     public float Health => _health;
-    public float SecondsBetweenShots => _secondsBetweenShots;
     public float Speed => _speed;
     public float StoppingDistance => _stoppingDistance;
+    public float SecondsBetweenShots => _secondsBetweenShots;
 }

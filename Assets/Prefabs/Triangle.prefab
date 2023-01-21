@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 11400000, guid: ed0e248ba1534c3438418c13f9325cb9, type: 2}
+  _isHitPlayer: 1
 --- !u!60 &8889375070811557477
 PolygonCollider2D:
   m_ObjectHideFlags: 0
