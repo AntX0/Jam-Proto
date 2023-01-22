@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 11400000, guid: ed0e248ba1534c3438418c13f9325cb9, type: 2}
-  _isHitPlayer: 1
+  _isEnemyProjectile: 1
 --- !u!58 &237447346572478837
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122482951063521414}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec25932173332a14689a03eecbcd2de8, type: 3}
   m_Name: 

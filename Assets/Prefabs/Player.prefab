@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 4366539741145927840}
   - component: {fileID: 4366539741145927841}
   - component: {fileID: 1502039187727567877}
+  - component: {fileID: 247526635}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -186,7 +187,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _forceAmmountToAdd: 30
   _boundY: 5.57
-  _projectilePrefab: {fileID: 7090798621825529292, guid: dcd47ec2233d5444aa0be42d2b929ad2, type: 3}
 --- !u!95 &4366539741145927840
 Animator:
   serializedVersion: 4
@@ -231,6 +231,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b3a31a0b1f69941b57c81c6f9c9e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 30
+  _maxHealth: 1000
   _invincibilityDurationSeconds: 2.23
   _currentHealth: 0
+--- !u!114 &247526635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4366539741145927846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb975395bbb025143969ed1e50e3e1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToPool: {fileID: 7090798621825529292, guid: dcd47ec2233d5444aa0be42d2b929ad2, type: 3}
+  _amountToPool: 10

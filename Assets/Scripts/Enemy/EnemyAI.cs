@@ -10,6 +10,9 @@ public class EnemyAI : MonoBehaviour
 
     private EnemyAnimationHandler _enemyAnimationHandler;
     private float _currentHealth;
+    private ObjectPooler _objectPooler;
+    private bool _allowFire;
+    private float _time;
 
     private void Awake()
     {
@@ -19,28 +22,31 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        _objectPooler = GetComponent<ObjectPooler>();
         _target = FindObjectOfType<Target>().transform;
-        StartCoroutine(AttackTarget());
+        _time = _enemy.FireRate;
     }
 
     void Update()
     {
-        if (_target == null)
-        {
-            MoveAway();
-            return;
-        }
-           
+        _time += Time.deltaTime;
+        float nextTimeToFire = 1 / _enemy.FireRate;
         float distanceToTarget = Vector2.Distance(transform.position, _target.position);
 
-        if (distanceToTarget > _enemy.StoppingDistance)
+        if (distanceToTarget > _enemy.StoppingDistance && _time >= nextTimeToFire)
         {
-            MoveToTarget();
-        } 
+            _time = 0;
+            DoFire();
+        }
         else if (distanceToTarget <= _enemy.StoppingDistance)
         {
             _target = null;
         }
+    }
+
+    private void DoFire()
+    {
+        _objectPooler.SpawnObject();
     }
 
 
@@ -53,7 +59,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Projectile>())
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
 
             float damage = collision.gameObject.GetComponent<Projectile>().SetDamage();
             float newHealth = _currentHealth -= damage;
@@ -64,32 +70,5 @@ public class EnemyAI : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-    }
-
-    private IEnumerator AttackTarget()
-    {
-        while(_target != null)
-        {
-            _enemyAnimationHandler.PlayAttackAnimation();
-
-            Vector2 direction = _target.position - transform.position;
-
-            GameObject projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
-            Projectile projectileStats = projectile.GetComponent<Projectile>();
-            Rigidbody2D rigidbody = projectile.GetComponent<Rigidbody2D>();
-
-            rigidbody.AddForce(direction.normalized * projectileStats.Speed, ForceMode2D.Force);
-            yield return new WaitForSeconds(_enemy.SecondsBetweenShots);
-        }
-    }
-
-    private void MoveAway()
-    {
-        transform.Translate(_enemy.Speed * 2 * Time.deltaTime * Vector2.left);
-    }
-
-    private void MoveToTarget()
-    {
-        transform.Translate(_enemy.Speed * Time.deltaTime * Vector2.left);
     }
 }

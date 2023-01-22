@@ -30,10 +30,10 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Projectile>() && collision.GetComponent<Projectile>().IsHitPlayer == true)
+        if (collision.GetComponent<Projectile>() && collision.GetComponent<Projectile>().IsEnemyProjectile == true)
         {
             TakeDamage(collision);
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
         else if (collision.GetComponent<GroundScroller>())
         {

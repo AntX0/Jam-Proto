@@ -15,4 +15,4 @@ MonoBehaviour:
   _health: 20
   _speed: 5.5
   _stoppingDistance: 14.3
-  _secondsBetweenShots: 4.03
+  _secondsBetweenShots: 2.59

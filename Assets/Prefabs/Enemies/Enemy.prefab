@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5848528694052354817}
   - component: {fileID: 3964298215069965813}
   - component: {fileID: 615677031217669081}
+  - component: {fileID: 5050375729573063614}
   m_Layer: 0
   m_Name: Enemy Core
   m_TagString: Untagged
@@ -173,6 +174,21 @@ CircleCollider2D:
   m_Offset: {x: -0.53, y: 0.23}
   serializedVersion: 2
   m_Radius: 1.42
+--- !u!114 &5050375729573063614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8774165828634879802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb975395bbb025143969ed1e50e3e1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToPool:
+  - {fileID: 122482951063521414, guid: bacf24ef3369d4249a71432f246c663a, type: 3}
+  _amountToPool: 30
 --- !u!1 &8774165828853650010
 GameObject:
   m_ObjectHideFlags: 0

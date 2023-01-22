@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 12.9
   _damage: 10
-  _mass: 0.01
-  _projectilePrefab: {fileID: 0}
+  _flyDistacne: 40

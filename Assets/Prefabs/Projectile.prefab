@@ -158,4 +158,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectile: {fileID: 11400000, guid: afdaaecb4e4870243ab3ba7c841cd440, type: 2}
-  _isHitPlayer: 0
+  _isEnemyProjectile: 0
