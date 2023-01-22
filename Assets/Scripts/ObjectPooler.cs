@@ -17,10 +17,11 @@ public class ObjectPooler : MonoBehaviour
     private void CreateNewObjectPool()
     {
         _pooledObjects = new List<GameObject>();
-        int rand = Random.Range(0, _objectToPool.Capacity);
+        
 
         for (int i = 0; i < _amountToPool; i++)
         {
+            int rand = Random.Range(0, _objectToPool.Capacity);
             GameObject obj = Instantiate(_objectToPool[rand]);
             obj.SetActive(false);
             _pooledObjects.Add(obj);
@@ -41,12 +42,12 @@ public class ObjectPooler : MonoBehaviour
 
     public void SpawnObject()
     {
-        GameObject projectile = GetPooledObject();
+        GameObject gameObject = GetPooledObject();
 
-        if (projectile != null)
+        if (gameObject != null)
         {
-            projectile.transform.position = transform.position;
-            projectile.SetActive(true);
+            gameObject.transform.position = transform.position;
+            gameObject.SetActive(true);
         }
     }
 }

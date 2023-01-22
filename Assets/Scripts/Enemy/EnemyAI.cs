@@ -11,8 +11,8 @@ public class EnemyAI : MonoBehaviour
     private EnemyAnimationHandler _enemyAnimationHandler;
     private float _currentHealth;
     private ObjectPooler _objectPooler;
-    private bool _allowFire;
     private float _time;
+    public Vector2 _directionToTarget;
 
     private void Awake()
     {
@@ -31,8 +31,9 @@ public class EnemyAI : MonoBehaviour
     {
         _time += Time.deltaTime;
         float nextTimeToFire = 1 / _enemy.FireRate;
-        float distanceToTarget = Vector2.Distance(transform.position, _target.position);
-
+        float distanceToTarget = Vector2.Distance(transform.position, _target.position.normalized);
+        _directionToTarget = _target.position - transform.position;
+        MoveObject();
         if (distanceToTarget > _enemy.StoppingDistance && _time >= nextTimeToFire)
         {
             _time = 0;
@@ -40,12 +41,13 @@ public class EnemyAI : MonoBehaviour
         }
         else if (distanceToTarget <= _enemy.StoppingDistance)
         {
-            _target = null;
+            MoveAway();
         }
     }
 
     private void DoFire()
     {
+        _enemyAnimationHandler.PlayAttackAnimation();
         _objectPooler.SpawnObject();
     }
 
@@ -67,8 +69,18 @@ public class EnemyAI : MonoBehaviour
             if (newHealth <= 0)
             {
                 _currentHealth = 0;
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
+    }
+
+    private void MoveAway()
+    {
+        transform.Translate(_enemy.Speed * 2 * Time.deltaTime * Vector2.left);
+    }
+
+    private void MoveObject()
+    {
+        transform.Translate(_enemy.Speed * Time.deltaTime * Vector2.left);
     }
 }

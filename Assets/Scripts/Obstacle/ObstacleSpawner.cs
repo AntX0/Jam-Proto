@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _obstaclesPool;
     [SerializeField] private float _maxHeight = 1f;
     [SerializeField] private float _minHeight = -1f;
+    [SerializeField] private float _spawnRate;
+    private ObjectPooler _objectPooler;
+    private float _time;
 
     private void Start()
     {
-        StartCoroutine(SpawnRandomObstacle());
+        _objectPooler = GetComponent<ObjectPooler>();
+       
     }
-
-    private IEnumerator SpawnRandomObstacle()
+    private void Update()
     {
-        while (true)
+        _time += Time.deltaTime;
+        float nextTimeToFire = 1 / _spawnRate;
+
+        if ( _time >= nextTimeToFire)
         {
-            int rand = Random.Range(0, _obstaclesPool.Capacity);
-            GameObject instance = Instantiate(_obstaclesPool[rand], transform.position, Quaternion.identity);
-            instance.transform.position += Vector3.up * Random.Range(_minHeight, _maxHeight);
-            yield return new WaitForSeconds(8);
+            _time = 0;
+            _objectPooler.SpawnObject();
         }
+        
     }
 }

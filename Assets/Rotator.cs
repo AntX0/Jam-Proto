@@ -10,7 +10,7 @@ public class Rotator : MonoBehaviour
     {
         float rotAmount = _degrees * Time.deltaTime;
         float curRot = transform.localRotation.eulerAngles.z;
-        transform.localRotation = Quaternion.Euler(new Vector3(0, 0, curRot + rotAmount));
+        transform.localRotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, curRot + rotAmount));
     }
 }
 

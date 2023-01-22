@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
         {
             _playerController.enabled = false;
         }
-        else if (collision.GetComponent<Obstacle>())
+        else if (collision.GetComponent<Obstacle>() || collision.GetComponent<EnemyAI>())
         {
             _currentHealth -= 10;
             StartCoroutine(BecomeTemporarilyInvincible());

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4814263558779183392}
   - component: {fileID: 4814263558779183399}
+  - component: {fileID: 1754377349}
   m_Layer: 0
   m_Name: Enemy Spawner
   m_TagString: Untagged
@@ -44,9 +45,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28aa1e254d5faa4aab04c183378cc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstaclesPool:
-  - {fileID: 8887952988555437483, guid: 011bd55b8ad2e6f46acd0abdc459349f, type: 3}
-  - {fileID: 8887952988555437483, guid: 203fb78a624779f4f9e79808252e3df1, type: 3}
-  - {fileID: 8887952988555437483, guid: 64348b3ca10fb974eb00a8550b781709, type: 3}
   _maxHeight: 5
   _minHeight: -3
+  _spawnRate: 0.63
+--- !u!114 &1754377349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4814263558779183398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb975395bbb025143969ed1e50e3e1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToPool:
+  - {fileID: 544353735067790680, guid: 9b307200c5d22da4e8e5523f5f593758, type: 3}
+  _amountToPool: 10

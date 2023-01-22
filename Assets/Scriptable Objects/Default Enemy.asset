@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Default Enemy
   m_EditorClassIdentifier: 
   _health: 20
-  _speed: 5.5
-  _stoppingDistance: 14.3
-  _secondsBetweenShots: 2.59
+  _speed: 8.85
+  _stoppingDistance: 8.15
+  _fireRate: 0.55

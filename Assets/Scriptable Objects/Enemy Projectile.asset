@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 12.78
   _damage: 10
-  _flyDistacne: 15
+  _flyDistacne: 64.74
