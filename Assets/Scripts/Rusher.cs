@@ -1,17 +1,15 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class Rusher : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private EnemyScriptableObjject _enemy;
-    [SerializeField] private GameObject _projectilePrefab;
-
+    
     private EnemyAnimationHandler _enemyAnimationHandler;
-    [SerializeField] private float _currentHealth;
-    private ObjectPooler _objectPooler;
-    private float _time;
+    private float _currentHealth;
     public Vector2 _directionToTarget;
 
     private void Awake()
@@ -23,35 +21,26 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         FindObjectOfType<ObjectDestroyer>().OnCollison += (sender, args) => _currentHealth = _enemy.Health;
-        _objectPooler = GetComponent<ObjectPooler>();
         _target = FindObjectOfType<Target>().transform;
-        _time = _enemy.FireRate;
     }
 
-    void Update()
+    private void Update()
     {
-        _time += Time.deltaTime;
-        float nextTimeToFire = 1 / _enemy.FireRate;
+        _directionToTarget= _target.position - transform.position;
         float distanceToTarget = Vector2.Distance(transform.position, _target.position.normalized);
-        _directionToTarget = _target.position - transform.position;
-
-        MoveObject();
-
-        if (distanceToTarget > _enemy.StoppingDistance && _time >= nextTimeToFire)
+        if (distanceToTarget > _enemy.StoppingDistance)
         {
-            _time = 0;
-            DoFire();
+            MoveTowardsTarget();
         }
         else if (distanceToTarget <= _enemy.StoppingDistance)
         {
-            MoveAway();
+            transform.Translate(_enemy.Speed * 2 * Time.deltaTime * Vector2.left);
         }
     }
 
-    private void DoFire()
+    private void MoveTowardsTarget()
     {
-        _enemyAnimationHandler.PlayAttackAnimation();
-        _objectPooler.SpawnObject();
+        transform.position = Vector2.MoveTowards(transform.position, _target.position, _enemy.Speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -75,15 +64,5 @@ public class EnemyAI : MonoBehaviour
                 _currentHealth = _enemy.Health;
             }
         }
-    }
-
-    private void MoveAway()
-    {
-        transform.Translate(_enemy.Speed * 2 * Time.deltaTime * Vector2.left);
-    }
-
-    private void MoveObject()
-    {
-        transform.Translate(_enemy.Speed * Time.deltaTime * Vector2.left);
     }
 }

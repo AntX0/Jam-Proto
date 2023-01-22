@@ -5,10 +5,28 @@ using UnityEngine;
 
 public class Ossilator : MonoBehaviour
 {
-    private void Update()
+    Vector3 startingPosition;
+    [SerializeField] Vector3 movementVector;
+    float movementFactor;
+    [SerializeField] float period = 2f;
+
+    void Start()
     {
-        float y = Mathf.PingPong(Time.time * 0.5f, 1) * 10 - 3;
-        transform.position = new Vector3(transform.position.x, y, transform.position.z);
+        startingPosition = transform.position;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (period <= Mathf.Epsilon) { return; }
+        float cycles = Time.time / period;
+
+        const float tau = Mathf.PI * 2;
+        float rawSinWave = Mathf.Sin(cycles * tau);
+
+        movementFactor = (rawSinWave + 1f) / 2;
+
+        Vector3 offset = movementVector * movementFactor;
+        transform.position = startingPosition + offset;
     }
 }
-

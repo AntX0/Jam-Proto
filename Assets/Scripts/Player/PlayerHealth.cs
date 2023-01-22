@@ -41,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (collision.GetComponent<Obstacle>() || collision.GetComponent<EnemyAI>())
         {
+            if (_isInvincible == true) { return; }
             _currentHealth -= 10;
             StartCoroutine(BecomeTemporarilyInvincible());
             CheckHealth();

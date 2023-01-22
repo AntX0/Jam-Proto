@@ -13,4 +13,9 @@ public class EnemyAnimationHandler : MonoBehaviour
     {
         _animator.SetTrigger("attack");
     }
+
+    public void PlayHitAnimation()
+    {
+        _animator.SetTrigger("Hit");
+    }
 }

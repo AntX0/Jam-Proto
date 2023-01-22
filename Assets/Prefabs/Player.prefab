@@ -246,5 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb975395bbb025143969ed1e50e3e1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectToPool: {fileID: 7090798621825529292, guid: dcd47ec2233d5444aa0be42d2b929ad2, type: 3}
+  _objectToPool:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _amountToPool: 10
