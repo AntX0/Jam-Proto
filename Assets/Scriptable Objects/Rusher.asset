@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb893e947a8560047808d52297903030, type: 3}
   m_Name: Rusher
   m_EditorClassIdentifier: 
-  _health: 20
-  _speed: 11.18
-  _stoppingDistance: 7
+  _health: 40
+  _speed: 14.88
+  _stoppingDistance: 9.87
   _fireRate: 0

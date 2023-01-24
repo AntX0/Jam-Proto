@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -61,9 +59,9 @@ public class EnemyAI : MonoBehaviour
 
     private void ApplyDamage(Collision2D collision)
     {
-        _enemyAnimationHandler.PlayHitAnimation();
         if (collision.gameObject.GetComponent<Projectile>())
         {
+            _enemyAnimationHandler.PlayHitAnimation();
             collision.gameObject.SetActive(false);
 
             float damage = collision.gameObject.GetComponent<Projectile>().SetDamage();

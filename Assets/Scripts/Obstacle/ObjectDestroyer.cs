@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectDestroyer : MonoBehaviour
 {
-    public EventHandler OnCollison;
+    public event EventHandler OnCollison;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

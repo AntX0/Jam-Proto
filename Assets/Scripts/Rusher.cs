@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rusher : MonoBehaviour
@@ -9,7 +6,7 @@ public class Rusher : MonoBehaviour
     [SerializeField] private EnemyScriptableObjject _enemy;
     
     private EnemyAnimationHandler _enemyAnimationHandler;
-    private float _currentHealth;
+    [SerializeField] private float _currentHealth;
     public Vector2 _directionToTarget;
 
     private void Awake()
@@ -28,6 +25,7 @@ public class Rusher : MonoBehaviour
     {
         _directionToTarget= _target.position - transform.position;
         float distanceToTarget = Vector2.Distance(transform.position, _target.position.normalized);
+
         if (distanceToTarget > _enemy.StoppingDistance)
         {
             MoveTowardsTarget();
@@ -50,9 +48,9 @@ public class Rusher : MonoBehaviour
 
     private void ApplyDamage(Collision2D collision)
     {
-        _enemyAnimationHandler.PlayHitAnimation();
         if (collision.gameObject.GetComponent<Projectile>())
         {
+            _enemyAnimationHandler.PlayHitAnimation();
             collision.gameObject.SetActive(false);
 
             float damage = collision.gameObject.GetComponent<Projectile>().SetDamage();
