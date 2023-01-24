@@ -7,9 +7,10 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _invincibilityDurationSeconds;
+    [SerializeField] private Canvas _gameOverCanvas;
 
     private PlayerController _playerController;
-    [SerializeField] private float _currentHealth;
+    private float _currentHealth;
     private bool _isInvincible = false;
     private Animator _animator;
 
@@ -23,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        _gameOverCanvas.enabled = false;
         _currentHealth = _maxHealth;
     }
 
@@ -87,7 +89,7 @@ public class PlayerHealth : MonoBehaviour
     public void HandleDeath()
     {
         _playerController.enabled = false;
-        /* gameOverCanvas.enabled = true;*/
+        _gameOverCanvas.enabled = true;
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
