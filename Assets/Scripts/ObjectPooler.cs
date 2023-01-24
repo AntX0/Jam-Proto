@@ -8,16 +8,17 @@ public class ObjectPooler : MonoBehaviour
     [SerializeField] private int _amountToPool;
 
     private List<GameObject> _pooledObjects;
+    private DifficultyController _difficulty;
 
     private void Start()
     {
+        _difficulty = FindObjectOfType<DifficultyController>();
         CreateNewObjectPool();
     }
 
     private void CreateNewObjectPool()
     {
         _pooledObjects = new List<GameObject>();
-        
 
         for (int i = 0; i < _amountToPool; i++)
         {

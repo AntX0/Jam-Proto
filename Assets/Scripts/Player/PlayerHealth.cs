@@ -43,7 +43,6 @@ public class PlayerHealth : MonoBehaviour
         else if (collision.GetComponent<GroundScroller>())
         {
             HandleDeath();
-            _playerController.enabled = false;
         }
         else if (collision.GetComponent<Obstacle>() || collision.GetComponent<EnemyAI>() || collision.GetComponent<Rusher>())
         {
@@ -71,7 +70,6 @@ public class PlayerHealth : MonoBehaviour
         {
             HandleDeath();
             _currentHealth = 0;
-           
         }
     }
 

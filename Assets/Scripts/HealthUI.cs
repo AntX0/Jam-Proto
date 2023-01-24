@@ -10,10 +10,11 @@ public class HealthUI : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<PlayerHealth>().OnDamageTaken += (sender, args) => _numberOfHearts -= 1;   
+        CheckNewHealth();
+        GetComponent<PlayerHealth>().OnDamageTaken += (sender, args) => { _numberOfHearts -= 1; CheckNewHealth();}; 
     }
 
-    private void Update()
+    private void CheckNewHealth()
     {
         for (int i = 0; i < _hearts.Length; i++)
         {

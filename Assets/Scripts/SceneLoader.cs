@@ -10,4 +10,10 @@ public class SceneLoader : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(1);
+        Cursor.visible = true;
+    }
 }

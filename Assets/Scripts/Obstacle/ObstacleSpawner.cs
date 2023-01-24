@@ -12,8 +12,8 @@ public class ObstacleSpawner : MonoBehaviour
     private void Start()
     {
         _objectPooler = GetComponent<ObjectPooler>();
-       
     }
+
     private void Update()
     {
         _time += Time.deltaTime;

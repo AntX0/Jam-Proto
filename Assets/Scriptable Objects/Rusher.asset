@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 40
   _speed: 14.88
-  _stoppingDistance: 9.87
+  _stoppingDistance: 7.25
   _fireRate: 0
