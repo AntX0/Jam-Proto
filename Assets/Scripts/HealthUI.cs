@@ -8,13 +8,29 @@ public class HealthUI : MonoBehaviour
     [SerializeField] private Image[] _hearts;
     [SerializeField] private Sprite _heartSprite;
 
-    private void Start()
+    private void OnEnable()
     {
-        CheckNewHealth();
-        GetComponent<PlayerHealth>().OnDamageTaken += (sender, args) => { _numberOfHearts -= 1; CheckNewHealth();}; 
+        PlayerHealth.OnDamageTaken += DecreaseHeartsAmount;
+        PlayerHealth.OnDamageTaken += UpdateHeartsAmount;
     }
 
-    private void CheckNewHealth()
+    private void OnDisable()
+    {
+        PlayerHealth.OnDamageTaken -= DecreaseHeartsAmount;
+        PlayerHealth.OnDamageTaken -= UpdateHeartsAmount;
+    }
+
+    private void Start()
+    {
+        UpdateHeartsAmount();
+    }
+
+    private void DecreaseHeartsAmount() 
+    { 
+        _numberOfHearts -= 1;
+    }
+
+    private void UpdateHeartsAmount()
     {
         for (int i = 0; i < _hearts.Length; i++)
         {

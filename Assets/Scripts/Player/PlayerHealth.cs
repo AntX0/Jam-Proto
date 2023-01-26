@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     private bool _isInvincible = false;
     private Animator _animator;
 
-    public event EventHandler OnDamageTaken;
+    public static event Action OnDamageTaken;
 
     private void Awake()
     {
@@ -48,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (_isInvincible == true) { return; }
             _currentHealth -= 10;
-            OnDamageTaken?.Invoke(this, null);
+            OnDamageTaken?.Invoke();
             StartCoroutine(BecomeTemporarilyInvincible());
             CheckHealth();
         }
@@ -59,7 +59,7 @@ public class PlayerHealth : MonoBehaviour
         if (_isInvincible == true) { return; }
         _currentHealth -= projectile.GetComponent<Projectile>().SetDamage();
 
-        OnDamageTaken?.Invoke(this, null);
+        OnDamageTaken?.Invoke();
         CheckHealth();
         StartCoroutine(BecomeTemporarilyInvincible());
     }

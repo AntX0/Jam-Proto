@@ -17,10 +17,18 @@ public class EnemyAI : MonoBehaviour
         _enemyAnimationHandler = GetComponent<EnemyAnimationHandler>();
         _currentHealth = _enemy.Health;
     }
+    private void OnEnable()
+    {
+        ObjectDestroyer.OnCollison += (sender, args) => _currentHealth = _enemy.Health;
+    }
+
+    private void OnDisable()
+    {
+        ObjectDestroyer.OnCollison -= (sender, args) => _currentHealth = _enemy.Health;
+    }
 
     private void Start()
     {
-        FindObjectOfType<ObjectDestroyer>().OnCollison += (sender, args) => _currentHealth = _enemy.Health;
         _objectPooler = GetComponent<ObjectPooler>();
         _target = FindObjectOfType<Target>().transform;
         _time = _enemy.FireRate;
