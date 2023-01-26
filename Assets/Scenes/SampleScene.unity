@@ -555,30 +555,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4142813872977887255, guid: 421263a1367024843b5823abaf25581e, type: 3}
   m_PrefabInstance: {fileID: 4142813874001701805}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1216177148 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4366539741145927846, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}
-  m_PrefabInstance: {fileID: 4366539739375689302}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1216177158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216177148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fa2504aa496e4e49bb36f6174aba6ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 3
-  _numberOfHearts: 3
-  _hearts:
-  - {fileID: 134482308}
-  - {fileID: 1247430927}
-  - {fileID: 2033146269}
-  _heartSprite: {fileID: 21300040, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
 --- !u!114 &1247430927 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8581092550078299603, guid: 6621c9c5075d89e488ad69e0d7351d3a, type: 3}
@@ -1788,18 +1764,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 247526635, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}
-      propertyPath: _objectToPool.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 247526635, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}
-      propertyPath: _objectToPool.Array.data[0]
+    - target: {fileID: 1216177158, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}
+      propertyPath: _hearts.Array.data[0]
       value: 
-      objectReference: {fileID: 7090798621825529292, guid: dcd47ec2233d5444aa0be42d2b929ad2, type: 3}
-    - target: {fileID: 1502039187727567877, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}
-      propertyPath: _maxHealth
-      value: 30
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 134482308}
+    - target: {fileID: 1216177158, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}
+      propertyPath: _hearts.Array.data[1]
+      value: 
+      objectReference: {fileID: 1247430927}
+    - target: {fileID: 1216177158, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}
+      propertyPath: _hearts.Array.data[2]
+      value: 
+      objectReference: {fileID: 2033146269}
     - target: {fileID: 1502039187727567877, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}
       propertyPath: _gameOverCanvas
       value: 
@@ -1846,22 +1822,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4366539741145927842, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4366539741145927843, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}
-      propertyPath: _boundY
-      value: 6.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4366539741145927843, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}
-      propertyPath: _forceAmmountToAdd
-      value: 33.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 4366539741145927844, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}
-      propertyPath: m_Mass
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 4366539741145927844, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}
-      propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4366539741145927846, guid: 19eff623a71cecf42a50c9c1383524e4, type: 3}

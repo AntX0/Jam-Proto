@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 4366539741145927841}
   - component: {fileID: 1502039187727567877}
   - component: {fileID: 247526635}
+  - component: {fileID: 1216177158}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -148,7 +149,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.06
+  m_Mass: 0.09
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
@@ -185,8 +186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1878afdc89e92849bd0b4ed05029877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forceAmmountToAdd: 30
-  _boundY: 5.57
+  _forceAmmountToAdd: 33.65
+  _boundY: 6.06
 --- !u!95 &4366539741145927840
 Animator:
   serializedVersion: 4
@@ -231,9 +232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b3a31a0b1f69941b57c81c6f9c9e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1000
+  _maxHealth: 30
   _invincibilityDurationSeconds: 2.23
-  _currentHealth: 0
+  _gameOverCanvas: {fileID: 0}
 --- !u!114 &247526635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +248,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToPool:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7090798621825529292, guid: dcd47ec2233d5444aa0be42d2b929ad2, type: 3}
   _amountToPool: 10
+--- !u!114 &1216177158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4366539741145927846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa2504aa496e4e49bb36f6174aba6ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 3
+  _numberOfHearts: 3
+  _hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _heartSprite: {fileID: 21300040, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
