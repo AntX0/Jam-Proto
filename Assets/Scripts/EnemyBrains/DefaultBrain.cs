@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-[CreateAssetMenu(fileName = "EnemyBrain", menuName = "ScriptableObjects/DefaultBrain", order = 1)]
+[CreateAssetMenu(fileName = "EnemyBrain", menuName = "ScriptableObjects/Brains/DefaultBrain", order = 1)]
 public class DefaultBrain : EnemyBrain
 {
     [SerializeField] private EnemyScriptableObjject _enemy;
 
-    public override void Move(EnemyAI AI)
+    public override void Move(EnemyAI enemyAI)
     {
-        AI.transform.Translate(_enemy.Speed * Time.deltaTime * Vector2.left);
+        enemyAI.transform.Translate(_enemy.Speed * Time.deltaTime * Vector2.left);
     }
 }

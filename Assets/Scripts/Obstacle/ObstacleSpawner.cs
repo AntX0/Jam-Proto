@@ -6,6 +6,7 @@ public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] private float _maxHeight = 1f;
     [SerializeField] private float _spawnRate;
+
     private ObjectPooler _objectPooler;
     private float _time;
 
