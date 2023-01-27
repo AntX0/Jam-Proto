@@ -5,6 +5,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private EnemyScriptableObjject _enemy;
     [SerializeField] private GameObject _projectilePrefab;
+    [SerializeField] private EnemyBrain _enemyBrain;
 
     private EnemyAnimationHandler _enemyAnimationHandler;
     [SerializeField] private float _currentHealth;
@@ -12,11 +13,14 @@ public class EnemyAI : MonoBehaviour
     private float _time;
     public Vector2 _directionToTarget;
 
+    public Transform Target => _target;
+
     private void Awake()
     {
         _enemyAnimationHandler = GetComponent<EnemyAnimationHandler>();
         _currentHealth = _enemy.Health;
     }
+
     private void OnEnable()
     {
         ObjectDestroyer.OnCollison += (sender, args) => _currentHealth = _enemy.Health;
@@ -41,7 +45,7 @@ public class EnemyAI : MonoBehaviour
         float distanceToTarget = Vector2.Distance(transform.position, _target.position.normalized);
         _directionToTarget = _target.position - transform.position;
 
-        MoveObject();
+        _enemyBrain.Move(this);
 
         if (distanceToTarget > _enemy.StoppingDistance && _time >= nextTimeToFire)
         {
@@ -86,10 +90,5 @@ public class EnemyAI : MonoBehaviour
     private void MoveAway()
     {
         transform.Translate(_enemy.Speed * 2 * Time.deltaTime * Vector2.left);
-    }
-
-    private void MoveObject()
-    {
-        transform.Translate(_enemy.Speed * Time.deltaTime * Vector2.left);
     }
 }

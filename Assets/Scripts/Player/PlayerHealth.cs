@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
         {
             HandleDeath();
         }
-        else if (collision.GetComponent<Obstacle>() || collision.GetComponent<EnemyAI>() || collision.GetComponent<Rusher>())
+        else if (collision.GetComponent<Obstacle>() || collision.GetComponent<EnemyAI>())
         {
             if (_isInvincible == true) { return; }
             _currentHealth -= 10;

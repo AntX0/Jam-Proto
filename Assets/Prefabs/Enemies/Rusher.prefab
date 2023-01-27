@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 5282145922024576919}
   - component: {fileID: 8557584196583877051}
   - component: {fileID: 4450010058569833400}
-  - component: {fileID: 1014719750}
   - component: {fileID: 7823150278000884881}
+  - component: {fileID: 1273523226653176299}
   m_Layer: 0
   m_Name: Rusher
   m_TagString: Untagged
@@ -172,21 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f11afaf2150644e8bffcc4bbb04a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1014719750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544353735067790680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e615ebd29dc8a8d488a6b49e79bc5b20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _enemy: {fileID: 11400000, guid: 0c274020050b03e49ada37018ecb2c10, type: 2}
-  _directionToTarget: {x: 0, y: 0}
 --- !u!114 &7823150278000884881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,3 +184,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43dd0bb10e4b6844f823fc5ddf1c832b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1273523226653176299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544353735067790680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515f389c495200f4f9a79045a1577c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _enemy: {fileID: 11400000, guid: 0c274020050b03e49ada37018ecb2c10, type: 2}
+  _projectilePrefab: {fileID: 122482951063521414, guid: 53f9f96b63df22543b7c96bf59aeb35e, type: 3}
+  _enemyBrain: {fileID: 11400000, guid: 4b6d60fa6d3be4842979457c2ee24dbd, type: 2}
+  _currentHealth: 0
+  _directionToTarget: {x: 0, y: 0}
