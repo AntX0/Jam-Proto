@@ -94,6 +94,6 @@ public class EnemyAI : MonoBehaviour
 
     private void MoveAway()
     {
-        transform.Translate(_enemy.Speed * 1.3f * Time.deltaTime * Vector2.left);
+        transform.Translate(_enemy.Speed * 2f * Time.deltaTime * Vector2.left);
     }
 }
