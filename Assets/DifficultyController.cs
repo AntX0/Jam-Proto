@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DifficultyController : MonoBehaviour
 {
-    [SerializeField] private int _difficultyLevel;
+    [SerializeField] private static int _difficultyLevel;
 
-    public event EventHandler OnDifficultyIncrease;
+    public static event Action OnDifficultyIncrease;
 
-    public int DifficultyLevel => _difficultyLevel;
+    public static int DifficultyLevel => _difficultyLevel;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class DifficultyController : MonoBehaviour
     {
         while (true)
         {
-            OnDifficultyIncrease?.Invoke(this, null);
+            OnDifficultyIncrease?.Invoke();
             _difficultyLevel += 1;
             yield return new WaitForSeconds(20);
         }

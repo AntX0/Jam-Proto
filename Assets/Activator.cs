@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class Activator : MonoBehaviour
 {
-    [SerializeField] private DifficultyController _difficultyController;
+    [SerializeField] private int _difficultyLevel;
 
-    private void Start()
+    private void OnEnable()
     {
-        _difficultyController.OnDifficultyIncrease += (sender, args) =>
-        {
-            Debug.Log(_difficultyController.DifficultyLevel);
-            CheckDifficulty();
-        };
+        DifficultyController.OnDifficultyIncrease += CheckDifficulty;
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        Debug.Log(_difficultyController.DifficultyLevel);
+        DifficultyController.OnDifficultyIncrease -= CheckDifficulty;
     }
 
     private void CheckDifficulty()
     {
-        if (_difficultyController.DifficultyLevel >= 1)
+        if (DifficultyController.DifficultyLevel >= _difficultyLevel)
         {
             GetComponent<ObstacleCreator>().enabled = true;
         }

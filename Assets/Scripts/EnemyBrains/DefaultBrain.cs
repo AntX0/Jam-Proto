@@ -10,6 +10,6 @@ public class DefaultBrain : EnemyBrain
 
     public override void Move(EnemyAI enemyAI)
     {
-        enemyAI.transform.Translate(_enemy.Speed * Time.deltaTime * Vector2.left);
+        enemyAI.transform.position += _enemy.Speed * Time.deltaTime * Vector3.left;
     }
 }

@@ -10,6 +10,16 @@ public class ObstacleSpawner : MonoBehaviour
     private ObjectPooler _objectPooler;
     private float _time;
 
+    private void OnEnable()
+    {
+        DifficultyController.OnDifficultyIncrease += IncreaseSpawnRate;
+    }
+
+    private void OnDisable()
+    {
+        DifficultyController.OnDifficultyIncrease -= IncreaseSpawnRate;
+    }
+
     private void Start()
     {
         _objectPooler = GetComponent<ObjectPooler>();
@@ -25,6 +35,10 @@ public class ObstacleSpawner : MonoBehaviour
             _time = 0;
             _objectPooler.SpawnObject();
         }
-        
+    }
+
+    private void IncreaseSpawnRate()
+    {
+        _spawnRate += 0.01f;
     }
 }

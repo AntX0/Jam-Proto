@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 67027023698116419}
   - component: {fileID: 67027023698116418}
+  - component: {fileID: 105654464}
   m_Layer: 0
   m_Name: ObstacleSpawner
   m_TagString: Untagged
@@ -39,14 +40,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67027023698116429}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 227c3f2d64d67c649821fa14e36dcea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _obstaclesPool:
-  - {fileID: 6575469921528569109, guid: 6ffa17a7122471c4b940f6f1850a052c, type: 3}
-  - {fileID: 6575469921528569109, guid: e0471634887d8944aa48db3904901623, type: 3}
   - {fileID: 6575469921528569109, guid: d6266ec178a52d440a72e8e1548efb23, type: 3}
+  - {fileID: 6575469921528569109, guid: d45bf46b4f2524046a56e88a6e6f63bb, type: 3}
   _maxHeight: 5
   _minHeight: -2
+--- !u!114 &105654464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67027023698116429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36892566d2586c64a81fe3358997e7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _difficultyLevel: 1

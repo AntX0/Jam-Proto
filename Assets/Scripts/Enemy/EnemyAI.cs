@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private EnemyBrain _enemyBrain;
 
     private EnemyAnimationHandler _enemyAnimationHandler;
-    private float _currentHealth;
+    [SerializeField] private float _currentHealth;
     private ObjectPooler _objectPooler;
     private float _time;
 
@@ -22,16 +22,6 @@ public class EnemyAI : MonoBehaviour
         _currentHealth = _enemy.Health;
     }
 
-    private void OnEnable()
-    {
-        ObjectDestroyer.OnCollison += (sender, args) => _currentHealth = _enemy.Health;
-    }
-
-    private void OnDisable()
-    {
-        ObjectDestroyer.OnCollison -= (sender, args) => _currentHealth = _enemy.Health;
-    }
-
     private void Start()
     {
         _objectPooler = GetComponent<ObjectPooler>();
@@ -39,7 +29,7 @@ public class EnemyAI : MonoBehaviour
         _time = _enemy.FireRate;
     }
 
-    void Update()
+    private void Update()
     {
         _time += Time.deltaTime;
         float nextTimeToFire = 1 / _enemy.FireRate;
@@ -57,6 +47,20 @@ public class EnemyAI : MonoBehaviour
         {
             MoveAway();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (transform.position.x <= -5)
+        {
+            ProcessResurection();
+        }
+    }
+
+    private void ProcessResurection()
+    {
+        _currentHealth = _enemy.Health;
+        gameObject.SetActive(false);
     }
 
     private void DoFire()
@@ -82,8 +86,7 @@ public class EnemyAI : MonoBehaviour
 
             if (newHealth <= 0)
             {
-                gameObject.SetActive(false);
-                _currentHealth = _enemy.Health;
+                ProcessResurection();
             }
         }
     }
