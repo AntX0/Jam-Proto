@@ -61,6 +61,7 @@ public class EnemyAI : MonoBehaviour
     {
         _currentHealth = _enemy.Health;
         gameObject.SetActive(false);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     private void DoFire()
@@ -93,6 +94,6 @@ public class EnemyAI : MonoBehaviour
 
     private void MoveAway()
     {
-        transform.Translate(_enemy.Speed * 2 * Time.deltaTime * Vector2.left);
+        transform.Translate(_enemy.Speed * 1.3f * Time.deltaTime * Vector2.left);
     }
 }

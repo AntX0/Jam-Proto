@@ -12,6 +12,7 @@ public class DifficultyController : MonoBehaviour
 
     private void Start()
     {
+        _difficultyLevel = 0;
         StartCoroutine(IncreaseDifficultyLevel());
     }
 
