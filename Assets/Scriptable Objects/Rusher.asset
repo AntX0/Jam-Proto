@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Rusher
   m_EditorClassIdentifier: 
   _health: 40
-  _speed: 8.74
-  _stoppingDistance: 10.56
+  _speed: 6.56
+  _stoppingDistance: 24.25
   _fireRate: 0

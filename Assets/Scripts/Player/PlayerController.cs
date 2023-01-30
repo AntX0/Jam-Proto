@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _forceAmmountToAdd = 10f;
     [SerializeField] private float _boundY;
+    [SerializeField] private float _speed;
 
     private ObjectPooler _objectPooler;
     private Rigidbody2D _rigidbody;
@@ -19,17 +20,17 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _rigidbody.position.y < _boundY)
+        if (Input.GetKey(KeyCode.Space) && transform.position.y < _boundY)
         {
-            AddForceTowardsSky();
-            _objectPooler.SpawnObject();
+            transform.position += Vector3.up * Time.deltaTime * _speed;
+            _birdAnimationHandler.PlayLeapAnimation();
+            /*AddForceTowardsSky();
+            _objectPooler.SpawnObject();*/
+        }
+        else
+        {
+            transform.position += Vector3.down * Time.deltaTime * 5.5f;
         }
     }
 
-    private void AddForceTowardsSky()
-    {
-        _rigidbody.velocity = Vector2.zero;
-        _rigidbody.AddForce(Vector2.up * _forceAmmountToAdd);
-        _birdAnimationHandler.PlayLeapAnimation();
-    }
 }

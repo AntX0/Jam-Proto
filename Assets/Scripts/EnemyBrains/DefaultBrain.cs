@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 [CreateAssetMenu(fileName = "EnemyBrain", menuName = "ScriptableObjects/Brains/DefaultBrain", order = 1)]
 public class DefaultBrain : EnemyBrain

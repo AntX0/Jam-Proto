@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private EnemyBrain _enemyBrain;
 
     private EnemyAnimationHandler _enemyAnimationHandler;
-    [SerializeField] private float _currentHealth;
+    private float _currentHealth;
     private ObjectPooler _objectPooler;
     private float _time;
 
