@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -50,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
             _currentHealth -= 10;
             OnDamageTaken?.Invoke();
             StartCoroutine(BecomeTemporarilyInvincible());
-            CheckHealth();
+            ObserveNewHealth();
         }
     }
 
@@ -60,11 +59,11 @@ public class PlayerHealth : MonoBehaviour
         _currentHealth -= projectile.GetComponent<Projectile>().SetDamage();
 
         OnDamageTaken?.Invoke();
-        CheckHealth();
+        ObserveNewHealth();
         StartCoroutine(BecomeTemporarilyInvincible());
     }
 
-    private void CheckHealth()
+    private void ObserveNewHealth()
     {
         if (_currentHealth <= 0)
         {

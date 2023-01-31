@@ -1,20 +1,24 @@
 using UnityEngine;
 
-
+[RequireComponent(typeof(ObjectPooler))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(BirdAnimationHandler))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float _forceAmmountToAdd = 10f;
+    [SerializeField] private float _forceAmountToAdd = 10f;
     [SerializeField] private float _boundY;
     [SerializeField] private float _speed;
+    [SerializeField] private float _fireRate;
+    [SerializeField] private float _downPullSpeed;
 
     private ObjectPooler _objectPooler;
-    private Rigidbody2D _rigidbody;
     private BirdAnimationHandler _birdAnimationHandler;
+    private float _time;
 
     private void Awake()
     {
         _objectPooler = GetComponent<ObjectPooler>();
-        _rigidbody = GetComponent<Rigidbody2D>();
         _birdAnimationHandler = GetComponent<BirdAnimationHandler>();
     }
 
@@ -22,15 +26,26 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && transform.position.y < _boundY)
         {
-            transform.position += Vector3.up * Time.deltaTime * _speed;
             _birdAnimationHandler.PlayLeapAnimation();
-            /*AddForceTowardsSky();
-            _objectPooler.SpawnObject();*/
+            transform.position += Vector3.up * Time.deltaTime * _speed;
         }
         else
         {
-            transform.position += Vector3.down * Time.deltaTime * 5.5f;
+            transform.position += Vector3.down * Time.deltaTime * _downPullSpeed;
         }
+
+        ProcessShoot(); 
     }
 
+    private void ProcessShoot()
+    {
+        _time += Time.deltaTime;
+        float nextTimeToFire = 1 / _fireRate;
+
+        if (_time >= nextTimeToFire && Input.GetKeyDown(KeyCode.Z))
+        {
+            _time = 0;
+            _objectPooler.SpawnObject();
+        }
+    }
 }
