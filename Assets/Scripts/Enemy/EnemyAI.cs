@@ -77,12 +77,12 @@ public class EnemyAI : MonoBehaviour
 
     private void ApplyDamage(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Projectile>())
+        if (collision.gameObject.TryGetComponent(out Projectile projectile))
         {
             _enemyAnimationHandler.PlayHitAnimation();
-            collision.gameObject.SetActive(false);
+            projectile.gameObject.SetActive(false);
 
-            float damage = collision.gameObject.GetComponent<Projectile>().SetDamage();
+            float damage = projectile.SetDamage();
             float newHealth = _currentHealth -= damage;
 
             if (newHealth <= 0)
