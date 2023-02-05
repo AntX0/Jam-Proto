@@ -7,9 +7,11 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _scoreText;
     private int _score;
 
+    public int Score => _score;
+
     private void Start()
     {
-        _score = -10; 
+        _score = 0; 
         StartCoroutine(IncreaseScore());
     }
 

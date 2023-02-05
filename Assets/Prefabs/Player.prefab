@@ -62,6 +62,8 @@ GameObject:
   - component: {fileID: 1502039187727567877}
   - component: {fileID: 247526635}
   - component: {fileID: 1216177158}
+  - component: {fileID: 392867063}
+  - component: {fileID: 392867074}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -145,11 +147,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4366539741145927846}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.09
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
@@ -186,8 +188,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1878afdc89e92849bd0b4ed05029877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forceAmmountToAdd: 33.65
-  _boundY: 6.06
+  _forceAmountToAdd: 10
+  _boundY: 8.51
+  _speed: 12.9
+  _fireRate: 2.4
+  _downPullSpeed: 5.5
 --- !u!95 &4366539741145927840
 Animator:
   serializedVersion: 4
@@ -269,3 +274,29 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _heartSprite: {fileID: 21300040, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+--- !u!114 &392867063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4366539741145927846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bab0577c5e972646ad75fb89d5e5c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreText: {fileID: 0}
+--- !u!114 &392867074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4366539741145927846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258459e693a6a134393f34de6f061bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _highscoreText: {fileID: 0}
